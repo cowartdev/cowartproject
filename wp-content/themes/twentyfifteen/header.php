@@ -24,6 +24,35 @@
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'twentyfifteen' ); ?></a>
+<header id="masthead" class="site-header" role="banner">
+        <div class="header-wrapper">
+            <div class="container">
+                <div class="row">
+                  <div class="col-md-4 col-sm-8 col-xs-12">
+                <div class="logo" itemprop="headline">
+                    <?php if ( has_custom_logo() ) {
+                      
+                            orbitr_the_custom_logo(); ?>
+                    <?php } else { ?>
+
+                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>" class="plain"><?php bloginfo( 'name' ); ?></a>
+                    <?php } ?>
+                </div>        
+                  </div>
+                  <div class="col-md-8 col-sm-4 col-xs-12">
+                            <div class="toggle"></div> <!-- toggle -->
+                    <div class="sitenav">
+                          <?php wp_nav_menu(array(
+                          'theme_location' => 'primary-menu',
+                          'echo' => true, 
+                          'fallback_cb' => 'orbitr_nav_fallback')); ?>
+                    </div><!-- site-nav -->
+                       <div class="clear"></div>
+                  </div><!-- col-md-8 col-sm-4 col-xs-12 -->
+                </div><!-- row -->                
+            </div><!-- container -->
+        </div><!-- header-wrapper -->
+    </header><!-- #masthead -->
 
 	<div id="sidebar" class="sidebar">
 		<header id="masthead" class="site-header" role="banner">
